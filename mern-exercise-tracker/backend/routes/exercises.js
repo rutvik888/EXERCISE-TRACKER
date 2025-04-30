@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let User = require('../models/exercise.model');
+let Exercise = require('../models/exercise.model');
 
 router.route('/').get((req,res)=>{
     Exercise.find()
@@ -44,6 +44,7 @@ router.route('/update/:id').post((req,res)=>{
         .then(()=>res.json('Exercise upadted!'))
         .catch(err=>res.status(400).json('Error'+err));
     })
+    .catch(err => res.status(400).json('Error: ' + err));
 })
 
 module.exports=router;
